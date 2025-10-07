@@ -1,58 +1,45 @@
-# Stress Testing Financial Portfolios
+# S&P 500 Portfolio Stress Testing & Sectoral Analysis
 
-### Data Info from Kaggle: https://www.kaggle.com/datasets/camnugent/sandp500/data
-S&P 500 Stock Data: The dataset provides historical stock prices for companies in the S&P 500 index over the last five years, aiming to facilitate analysis and model building for potential financial payoff. The dataset was compiled using a script available on GitHub, and it includes updates accounting for changes in the S&P 500 index as of February 2018.
+## Project Overview
 
-### Content:
-Formats: The data is available in two formats:
-Merged Data: all_stocks_5yr.csv - contains combined data for all stocks.
-Individual Data: individual_stocks_5yr folder - contains separate files for each stock, named by their ticker.
+This project provides a comprehensive analysis of S&P 500 historical stock data over a five-year period. The primary goal is to assess the resilience of a financial portfolio against severe market shocks through simulation and to conduct a comparative analysis of performance across different industry sectors. The framework is built in Python using core data science libraries for data manipulation, analysis, and visualization.
 
-### Columns:
-- Date: Stock price date in yy-mm-dd format.
-- Open: Opening price of the stock in USD.
-- High: Highest price reached during the day.
-- Low Close: Lowest price reached during the day.
-- Volume: Number of shares traded.
-- Name: Stock's ticker symbol.
+## Key Features & Analysis Performed
 
-### Acknowledgements:
-- Data Source: Due to volatility in Google Finance, the data was sourced from The Investor's Exchange API.
-- Tools Used: Kaggle, GitHub, pandas_datareader, and The Market.
+-   **Data Aggregation:** Processed and combined historical data from over 500 individual company CSV files into a single, unified Pandas DataFrame for analysis.
+-   **Scenario-Based Stress Testing:**
+    -   **Financial Crisis Simulation:** Modeled the impact of a severe market crash (e.g., a 30% drop in stock prices) on the portfolio's cumulative returns.
+    -   **Interest Rate Hike Simulation:** Modeled the impact of a smaller, systemic shock (e.g., a 10% drop) representing an interest rate hike scenario.
+-   **Performance Visualization:** Plotted and compared the cumulative returns of the portfolio under normal conditions versus stressed scenarios to visualize impact and recovery paths.
+-   **In-Depth Sectoral Analysis:**
+    -   Grouped all stocks by their respective industries (e.g., Information Technology, Health Care, Energy).
+    -   Calculated and visualized comparative metrics, including **average stock price, trading volume, daily returns, and volatility (risk)** for each sector.
+-   **Correlation Analysis:** Generated a correlation heatmap to understand the relationships between different sectors, providing key insights for portfolio diversification.
 
-### Inspiration:
-- Visualization Opportunities: Users can visualize price changes over time, compare multiple stocks, and generate new metrics.
-- Analytical Potential: The dataset allows for the calculation of stock statistics such as volatility and moving averages.
-- Challenge: Develop a model that can outperform the market and enable statistically informed trades.
+## Technology Stack
 
-### how I am using the dataset: 
+-   **Language:** Python
+-   **Libraries:** Pandas, NumPy, Matplotlib, Seaborn
+-   **Environment:** Jupyter Notebook / Kaggle
 
-1. Scenario Analysis for Portfolio Stress Testing: "Financial Crisis Scenario". This scenario is particularly relevant because financial crises often have significant impacts on markets and can provide insights into how your portfolio might perform under extreme conditions.
-Objective: Evaluate how a significant economic downturn or financial crisis impacts your portfolio. This could involve a sudden market crash, a recession, or a severe economic downturn.
+## Methodology
 
-Key Assumptions:
-Market Drop: Assuming a substantial drop in stock prices. For example, a 30% decline in the closing prices of all stocks in the portfolio.
-Increased Volatility: During a financial crisis, market volatility often increases. This can be factored into your model by increasing the standard deviation of returns.
-Sector Impact: Different sectors may be affected differently. Consider how a crisis might impact various sectors in your portfolio.
-Objective: Evaluating the performance of financial portfolios under different economic scenarios.
+The project follows a three-step methodology:
+1.  **Data Preprocessing:** Loading, cleaning, and aggregating the raw stock data.
+2.  **Simulation:** Applying rule-based scenarios to the dataset to create "stressed" portfolio values.
+3.  **Analysis & Visualization:** Grouping the data by industry and using statistical measures and plots to extract meaningful insights.
 
+## Future Work & Potential Improvements
 
-2.  Value at Risk (VaR) and Conditional Value at Risk (CVaR)
+While the current analysis provides a solid foundation, the following advanced techniques could be implemented to further enhance this project:
+-   **Implement Statistical Risk Models:** Calculate and analyze **Value at Risk (VaR)** and **Conditional Value at Risk (CVaR)** to quantify potential losses with specific confidence levels.
+-   **Integrate Factor Models:** Use multi-factor models like the **Fama-French Three-Factor Model** to conduct a more sophisticated stress test and explain the drivers of portfolio returns.
+-   **Liquidity Risk Assessment:** Develop a model to assess liquidity risk by analyzing trading volumes and simulating scenarios where assets cannot be easily sold at their market price.
+-   **Build an Interactive Dashboard:** Create a web-based dashboard using Streamlit or Plotly Dash to allow users to interact with the simulations and analysis dynamically.
 
-Objective: Calculating and compare the Value at Risk (VaR) and Conditional Value at Risk (CVaR) for different portfolios.
+---
 
-Approach: Implementing historical simulation and Monte Carlo simulation techniques to estimate VaR and CVaR.
+## About the Dataset (Source: Kaggle)
 
-
-3. Stress Testing with Factor Models
-
-Objective: Useing factor models to stress test portfolios by simulating the impact of factor movements (e.g., interest rates, inflation) on portfolio returns.
-
-Approach: Implementng multi-factor models (e.g., Fama-French) to analyze the sensitivity of portfolios to different economic factors.
-
-
-4. Liquidity Risk Assessment in Stress Testing
-
-Objective: Assessing the liquidity risk of portfolios under stressed market conditions.
-
-Approach: Developing models to simulate the impact of liquidity shocks on portfolio performance, considering factors like bid-ask spreads and trading volumes.
+-   **Content:** The dataset provides historical stock prices (Open, High, Low, Close, Volume) for S&P 500 companies, updated as of February 2018. The data is available as a single merged file (`all_stocks_5yr.csv`) and as individual files for each stock.
+-   **Acknowledgements:** The data was sourced from The Investor's Exchange (IEX) API.
